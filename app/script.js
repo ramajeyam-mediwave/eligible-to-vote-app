@@ -2,13 +2,25 @@ const ageInputBox = document.querySelector('#users-age')
 const calculateBtn = document.querySelector('#calculate-btn')
 const resultDiv = document.querySelector('#eligibility-result')
 
+function printToResult(text) {
+    if (text) {
+        resultDiv.innerHTML = '<h3>'+text+'</h3>'
+    }
+
+    // if (!text) {
+    //     return;
+    // }
+    // resultDiv.innerHTML = '<h3>'+text+'</h3>'
+
+}
+
 // calling a function when the button gets clicked
 calculateBtn.addEventListener('click', function() {
     let result = '';
 
     const userAge = ageInputBox.value;
     if (!userAge) {
-        console.log('Please enter an age')
+        printToResult('Please enter an age')
         return;
     }
    
@@ -25,5 +37,5 @@ calculateBtn.addEventListener('click', function() {
     }
     
     // concatenation
-    resultDiv.innerHTML = '<h3>'+result+'</h3>'
+    printToResult(result)
 })
